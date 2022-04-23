@@ -10,6 +10,8 @@ import com.O48WRX.Dragon.StrategyPattern.FireDragon;
 import com.O48WRX.Juice.Observer.JuiceData;
 import com.O48WRX.Juice.Observer.JuiceMachineDisplay;
 import com.O48WRX.MonsterMasodikFeladat.Ogre;
+import com.O48WRX.Notification.Factory.Notification;
+import com.O48WRX.Notification.Factory.NotificationFactory;
 import com.O48WRX.Person.BuilderPattern.Person;
 import com.O48WRX.SasElsoFeladat.Sas;
 import com.O48WRX.Tree.Prototype.PineTree;
@@ -120,5 +122,11 @@ public class Main {
         person = new Person.Builder("Jeff","Bezos","jeffbezos@somewhere.com").build();
         System.out.println(person.toString());
 
+        System.out.println("====================================");
+        System.out.println("Feladat: Gyartometodus(Factory method) tervezesi minta");
+
+        NotificationFactory notificationFactory = new NotificationFactory();
+        Notification notification = notificationFactory.createNotification("SMS");
+        notification.notifyUser();
     }
 }
