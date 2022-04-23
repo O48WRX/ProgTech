@@ -1,5 +1,9 @@
 package com.O48WRX;
 
+import com.O48WRX.Animal.Absfactory.AbstractFactory;
+import com.O48WRX.Animal.Absfactory.Animal;
+import com.O48WRX.Animal.Absfactory.Color;
+import com.O48WRX.Animal.Absfactory.FactoryProvider;
 import com.O48WRX.Beer.Singleton.Beer;
 import com.O48WRX.Birds.ProgramToAnInterface.*;
 import com.O48WRX.Car.ObjectComposition.Car;
@@ -128,5 +132,23 @@ public class Main {
         NotificationFactory notificationFactory = new NotificationFactory();
         Notification notification = notificationFactory.createNotification("SMS");
         notification.notifyUser();
+
+        System.out.println("====================================");
+        System.out.println("Feladat: Absztrakt gyar(Abstract Factory) tervezesi minta");
+
+        FactoryProvider factoryProvider = new FactoryProvider();
+
+        AbstractFactory aniFactory = factoryProvider.getFactory("Animal");
+        AbstractFactory colFactory = factoryProvider.getFactory("Color");
+
+        Animal lion = (Animal) aniFactory.create("Lion");
+        Animal duck = (Animal) aniFactory.create("Duck");
+        Animal dog = (Animal) aniFactory.create("Dog");
+        Animal unknown = (Animal) aniFactory.create("unknown");
+        if(unknown == null)
+            System.out.println("Unknown is null");
+
+        Color white = (Color) colFactory.create("White");
+        System.out.println(white.getColor());
     }
 }
