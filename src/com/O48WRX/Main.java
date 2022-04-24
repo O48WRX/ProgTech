@@ -9,6 +9,9 @@ import com.O48WRX.Birds.ProgramToAnInterface.*;
 import com.O48WRX.Car.ObjectComposition.Car;
 import com.O48WRX.Car.ObjectComposition.CivilianCar;
 import com.O48WRX.Car.ObjectComposition.RaceCar;
+import com.O48WRX.ChristmasTree.Decorator.BubbleLights;
+import com.O48WRX.ChristmasTree.Decorator.ChristmasTreeImpl;
+import com.O48WRX.ChristmasTree.Decorator.TreeDecorator;
 import com.O48WRX.Dragon.StrategyPattern.Dragon;
 import com.O48WRX.Dragon.StrategyPattern.FireDragon;
 import com.O48WRX.Juice.Observer.JuiceData;
@@ -21,6 +24,9 @@ import com.O48WRX.SasElsoFeladat.Sas;
 import com.O48WRX.Tree.Prototype.PineTree;
 import com.O48WRX.Tree.Prototype.PlasticTree;
 import com.O48WRX.Tree.Prototype.TreePrototype;
+import com.O48WRX.Weight.AdapterPattern.Weighable;
+import com.O48WRX.Weight.AdapterPattern.WeighableAdapter;
+import com.O48WRX.Weight.AdapterPattern.WeighableAdapterImpl;
 import com.sun.source.tree.Tree;
 
 public class Main {
@@ -150,5 +156,19 @@ public class Main {
 
         Color white = (Color) colFactory.create("White");
         System.out.println(white.getColor());
+
+        System.out.println("====================================");
+        System.out.println("Feladat:  Illesztő(Adapter) tervezesi minta");
+
+        WeighableAdapter weighableAdapter = new WeighableAdapterImpl();
+
+        weighableAdapter.getWeight();
+
+        System.out.println("====================================");
+        System.out.println("Feladat:  Díszítő(Decorator) tervezesi minta");
+
+        TreeDecorator decorator = new BubbleLights(new ChristmasTreeImpl());
+
+        decorator.decorate();
     }
 }
